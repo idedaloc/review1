@@ -4,7 +4,7 @@
 
     <groupId>com.review</groupId>
     <artifactId>review1</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
     <modules>
         <module>review-data</module>
         <module>review-web</module>
@@ -99,6 +99,6 @@
         <developerConnection>
             scm:git:git@github.com:idedaloc/review1.git
         </developerConnection>
-      <tag>review1-0.0.2</tag>
+      <tag>HEAD</tag>
   </scm>
 </project>
