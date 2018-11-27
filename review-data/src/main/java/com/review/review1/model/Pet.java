@@ -1,11 +1,11 @@
 package com.review.review1.model;
 
-import sun.util.resources.LocaleData;
+import java.time.LocalDate;
 
 public class Pet {
     private PetType petType;
     private Owner owner;
-    private LocaleData birhtDate;
+    private LocalDate birhtDate;
 
     public PetType getPetType() {
         return petType;
@@ -23,11 +23,11 @@ public class Pet {
         this.owner = owner;
     }
 
-    public LocaleData getBirhtDate() {
+    public LocalDate getBirhtDate() {
         return birhtDate;
     }
 
-    public void setBirhtDate(LocaleData birhtDate) {
+    public void setBirhtDate(LocalDate birhtDate) {
         this.birhtDate = birhtDate;
     }
 }
