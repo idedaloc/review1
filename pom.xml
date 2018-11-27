@@ -4,7 +4,7 @@
 
     <groupId>com.review</groupId>
     <artifactId>review1</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <modules>
         <module>review-data</module>
         <module>review-web</module>
@@ -89,6 +89,7 @@
 
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
@@ -98,6 +99,6 @@
         <developerConnection>
             scm:git:git@github.com:idedaloc/review1.git
         </developerConnection>
-      <tag>HEAD</tag>
+      <tag>review1-0.0.2</tag>
   </scm>
 </project>
