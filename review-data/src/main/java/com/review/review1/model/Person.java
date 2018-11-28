@@ -1,6 +1,6 @@
 package com.review.review1.model;
 
-public class Person {
+public class Person extends BaseEntity {
     private String firstName;
     private String lastName;
 
