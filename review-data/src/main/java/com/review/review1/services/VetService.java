@@ -6,7 +6,7 @@ import com.review.review1.model.Vet;
 
 import java.util.Set;
 
-public interface VetService {
+public interface VetService extends  CrudService<Vet,Long>{
 
     Vet findById(Long Id);
     Vet save(Vet vet);
