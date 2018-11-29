@@ -3,9 +3,11 @@ package com.review.review1.services.map;
 import com.review.review1.model.Owner;
 import com.review.review1.services.CrudService;
 import com.review.review1.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
 
     @Override
