@@ -5,7 +5,23 @@
     <title>List of pet owners</title>
 </head>
 <body>
-    <h1 th:text="'List of owners'">List of owners</h1>
+<h1 th:text="'List of owners'">List of owners</h1>
 
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>FirstN</th>
+        <th>LastN</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner: ${owners}">
+        <th th:text="${owner?.getId()}">1</th>
+        <th th:text="${owner?.getFirstName()}">1</th>
+        <th th:text="${owner?.getLastName()}">1</th>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
