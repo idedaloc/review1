@@ -2,33 +2,39 @@ package com.review.review1.services.map;
 
 import com.review.review1.model.Owner;
 import com.review.review1.services.CrudService;
+import com.review.review1.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements CrudService<Owner,Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
-        return this.findAll();
+        return super.findAll();
     }
 
     @Override
     public void deleteById(Long id) {
-        this.deleteById(id);
+        super.deleteById(id);
     }
 
     @Override
     public void delete(Owner object) {
-        this.delete(object);
+        super.delete(object);
     }
 
     @Override
     public Owner save(Owner object) {
-        return this.save(object);
+        return super.save(object.getId(),object);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 
     @Override
     public Owner findById(Long id) {
-        return this.findById(id);
+        return super.findById(id);
     }
 }
