@@ -2,10 +2,12 @@ package com.review.review1.services.map;
 
 import com.review.review1.model.PetType;
 import com.review.review1.services.PetTypeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-class PetPetTypeypeMap extends AbstractMapService<PetType, Long> implements PetTypeService {
+@Service
+class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
         return super.findAll();
