@@ -1,6 +1,7 @@
 package com.review.review1.bootstrap;
 
 import com.review.review1.model.Owner;
+import com.review.review1.model.Pet;
 import com.review.review1.model.PetType;
 import com.review.review1.model.Vet;
 import com.review.review1.services.OwnerService;
@@ -8,6 +9,8 @@ import com.review.review1.services.PetTypeService;
 import com.review.review1.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -36,6 +39,17 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setFirstName("First");
         owner1.setLastName("Second");
+        owner1.setAddress("123 addres");
+        owner1.setCity("Miami");
+        owner1.setTelephone("123345123");
+
+        Pet firstsPet = new Pet();
+        firstsPet.setName("FitstsPet");
+        firstsPet.setOwner(owner1);
+        firstsPet.setBirhtDate(LocalDate.now());
+        firstsPet.setPetType(savedDogType);
+
+        owner1.getPetSet().add(firstsPet);
 
         ownerService.save(owner1);
 
