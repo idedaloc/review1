@@ -10,4 +10,8 @@ public class indexController {
     public String index(){
         return "index";
     }
+    @GetMapping({"/oups"})
+    public String findOwners(){
+        return "notimplementedyet";
+    }
 }
