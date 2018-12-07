@@ -1,5 +1,10 @@
 package com.review.review1.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "types")
 public class PetType extends BaseEntity{
     private String name;
 
