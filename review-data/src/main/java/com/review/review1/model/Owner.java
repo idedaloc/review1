@@ -11,9 +11,11 @@ public class Owner extends Person {
     private String address;
     private String city;
     private String telephone;
-    private Set<Pet> petSet = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private Set<Pet> petSet = new HashSet<>();
+
+
     public Set<Pet> getPetSet() {
         return petSet;
     }
