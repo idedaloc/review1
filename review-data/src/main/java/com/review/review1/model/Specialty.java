@@ -6,7 +6,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "specialty")
 public class Specialty extends BaseEntity {
-   
+
     private String description;
 
     public String getDescription() {
