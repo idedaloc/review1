@@ -2,15 +2,16 @@ package com.review.review1.services.map;
 
 import com.review.review1.model.Owner;
 import com.review.review1.model.Pet;
-import com.review.review1.services.CrudService;
 import com.review.review1.services.OwnerService;
 import com.review.review1.services.PetService;
 import com.review.review1.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
 
     private final PetService petService;
