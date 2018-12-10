@@ -1,19 +1,20 @@
 package com.review.review1.model;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "specialty")
 public class Specialty extends BaseEntity {
 
     private String description;
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
