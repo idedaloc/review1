@@ -9,54 +9,60 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
 @Profile("springdatajpa")
 public class OwnerSDJpa implements OwnerService {
 
-    private OwnerRepository ownerRepository;
-    private PetRepository petRepository;
-    private PetTypeRepository petTypeRepository;
+	private OwnerRepository ownerRepository;
+	private PetRepository petRepository;
+	private PetTypeRepository petTypeRepository;
 
-    public OwnerSDJpa(OwnerRepository ownerRepository, PetRepository petRepository,
-                      PetTypeRepository petTypeRepository) {
-        this.ownerRepository = ownerRepository;
-        this.petRepository = petRepository;
-        this.petTypeRepository = petTypeRepository;
-    }
+	public OwnerSDJpa(OwnerRepository ownerRepository, PetRepository petRepository,
+			PetTypeRepository petTypeRepository) {
+		this.ownerRepository = ownerRepository;
+		this.petRepository = petRepository;
+		this.petTypeRepository = petTypeRepository;
+	}
 
-    @Override
-    public Owner findByLastName(String lastName) {
-        return ownerRepository.findByLastName(lastName);
-    }
+	@Override
+	public Owner findByLastName(String lastName) {
+		return ownerRepository.findByLastName(lastName);
+	}
 
-    @Override
-    public Owner findById(Long Id) {
-        return ownerRepository.findById(Id).orElseThrow(RuntimeException::new);
-    }
+	@Override
+	public Owner findById(Long Id) {
+		return ownerRepository.findById(Id).orElseThrow(RuntimeException::new);
+	}
 
-    @Override
-    public Owner save(Owner owner) {
-        System.out.println("***************************************");
-        return ownerRepository.save(owner);
-    }
+	@Override
+	public Owner save(Owner owner) {
+		System.out.println("***************************************");
+		return ownerRepository.save(owner);
+	}
 
-    @Override
-    public void delete(Owner object) {
-        ownerRepository.delete(object);
-    }
+	@Override
+	public void delete(Owner object) {
+		ownerRepository.delete(object);
+	}
 
-    @Override
-    public void deleteById(Long aLong) {
-        ownerRepository.deleteById(aLong);
-    }
+	@Override
+	public void deleteById(Long aLong) {
+		ownerRepository.deleteById(aLong);
+	}
 
-    @Override
-    public Set<Owner> findAll() {
-        Set<Owner> owners = new HashSet<>();
-        ownerRepository.findAll().forEach(owners::add);
-        return owners;
+	@Override
+	public Set<Owner> findAll() {
+		Set<Owner> owners = new HashSet<>();
+		ownerRepository.findAll().forEach(owners::add);
+		return owners;
 
-    }
+	}
+
+	@Override
+	public List<Owner> findAllByLastNameLike(String lastName) {
+		return ownerRepository.findAllByLastNameLike(lastName);
+	}
 }
