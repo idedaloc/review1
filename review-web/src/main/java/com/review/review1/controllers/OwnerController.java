@@ -76,7 +76,7 @@ public class OwnerController {
         model.addAttribute("owner", owner);
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
-
+ 
     @PostMapping("/new")
     public String processCreationForm(@Valid Owner owner, BindingResult result) {
         if (result.hasErrors()) {
