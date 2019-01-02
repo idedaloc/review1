@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -27,8 +28,8 @@ public class SpecialtyJpaService implements SpecialityService {
     }
 
     @Override
-    public Specialty findById(Long aLong) {
-        return specialtyRepository.findById(aLong).orElseThrow(RuntimeException::new);
+    public Optional<Specialty> findById(Long aLong) {
+        return specialtyRepository.findById(aLong);
     }
 
     @Override

@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import com.review.review1.exceptions.NotFoundException;
 import com.review.review1.model.Pet;
 import com.review.review1.model.Visit;
 import com.review.review1.services.PetService;
@@ -58,7 +59,7 @@ class VisitController {
      */
     @ModelAttribute("visit")
     public Visit loadPetWithVisit(@PathVariable("petId") Long petId, Model model) {
-        Pet pet = petService.findById(petId);
+        Pet pet = petService.findById(petId).orElseThrow(NotFoundException::new);
         model.addAttribute("pet", pet);
         Visit visit = new Visit();
         pet.getVisits().add(visit);

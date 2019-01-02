@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -21,8 +22,8 @@ public class VetJpaService implements VetService {
     }
 
     @Override
-    public Vet findById(Long Id) {
-        return vetRepository.findById(Id).orElseThrow(RuntimeException::new);
+    public Optional<Vet> findById(Long Id) {
+        return vetRepository.findById(Id);
     }
 
     @Override

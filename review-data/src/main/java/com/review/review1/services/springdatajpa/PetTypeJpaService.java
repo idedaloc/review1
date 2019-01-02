@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -28,8 +29,8 @@ public class PetTypeJpaService implements PetTypeService {
     }
 
     @Override
-    public PetType findById(Long aLong) {
-        return petTypeRepository.findById(aLong).orElseThrow(RuntimeException::new);
+    public Optional<PetType> findById(Long aLong) {
+        return petTypeRepository.findById(aLong);
     }
 
     @Override

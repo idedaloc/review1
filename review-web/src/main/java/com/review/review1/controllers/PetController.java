@@ -10,6 +10,7 @@ import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import com.review.review1.exceptions.NotFoundException;
 import com.review.review1.model.Owner;
 import com.review.review1.model.Pet;
 import com.review.review1.model.PetType;
@@ -49,7 +50,7 @@ class PetController {
 
 	@ModelAttribute("owner")
 	public Owner findOwner(@PathVariable("ownerId") Long ownerId) {
-		return ownerService.findById(ownerId);
+		return ownerService.findById(ownerId).orElseThrow(NotFoundException::new);
 	}
 
 	@InitBinder("owner")
@@ -102,7 +103,7 @@ class PetController {
 
 	@GetMapping("/pets/{petId}/edit")
 	public String initUpdateForm(@PathVariable("petId") Long petId, Model model) {
-		Pet pet = petService.findById(petId);
+		Pet pet = petService.findById(petId).orElseThrow(NotFoundException::new);
 		model.addAttribute("pet", pet);
 		return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
 	}
@@ -114,7 +115,7 @@ class PetController {
 			model.addAttribute("pet", pet);
 			return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
 		} else {
-			Pet savedPet = petService.findById(pet.getId());
+			Pet savedPet = petService.findById(pet.getId()).orElseThrow(NotFoundException::new);
 			savedPet.setName(pet.getName());
 			savedPet.setBirhtDate(pet.getBirhtDate());
 			//savedPet.setOwner(owner);

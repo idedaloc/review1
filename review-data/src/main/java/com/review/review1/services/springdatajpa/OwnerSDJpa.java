@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -33,8 +34,8 @@ public class OwnerSDJpa implements OwnerService {
 	}
 
 	@Override
-	public Owner findById(Long Id) {
-		return ownerRepository.findById(Id).orElseThrow(RuntimeException::new);
+	public Optional<Owner> findById(Long Id) {
+		return ownerRepository.findById(Id);
 	}
 
 	@Override

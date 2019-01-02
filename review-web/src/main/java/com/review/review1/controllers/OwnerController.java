@@ -1,9 +1,12 @@
 package com.review.review1.controllers;
 
+import com.review.review1.exceptions.NotFoundException;
 import com.review.review1.model.Owner;
 import com.review.review1.services.OwnerService;
 
+
 import java.util.Collection;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -36,7 +39,8 @@ public class OwnerController {
 	@GetMapping("/{ownerId}")
 	public ModelAndView showOwner(@PathVariable("ownerId") Long ownerId) {
 		ModelAndView mav = new ModelAndView("owners/ownerDetails");
-		mav.addObject(ownerService.findById(ownerId));
+		mav.addObject(ownerService.findById(ownerId)
+						.orElseThrow(() -> new NotFoundException("****8testing***8::")));
 		return mav;
 	}
 
@@ -89,7 +93,9 @@ public class OwnerController {
     
     @GetMapping("/{ownerId}/edit")
     public String initUpdateOwnerForm(@PathVariable("ownerId") Long ownerId, Model model) {
-        Owner owner = ownerService.findById(ownerId);
+    	Owner owner = ownerService.findById(ownerId)
+    						.orElseThrow(() -> new NotFoundException("****8testing***8::"));               	
+        
         model.addAttribute(owner);
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }

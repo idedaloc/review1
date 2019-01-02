@@ -5,6 +5,7 @@ import com.review.review1.services.VisitService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -38,7 +39,7 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     }
 
     @Override
-    public Visit findById(Long id) {
+    public Optional<Visit> findById(Long id) {
         return super.findById(id);
     }
 }

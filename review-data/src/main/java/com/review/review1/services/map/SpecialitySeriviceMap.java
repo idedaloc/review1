@@ -5,6 +5,7 @@ import com.review.review1.services.SpecialityService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -17,7 +18,7 @@ public class SpecialitySeriviceMap extends AbstractMapService<Specialty, Long> i
     }
 
     @Override
-    public Specialty findById(Long aLong) {
+    public Optional<Specialty> findById(Long aLong) {
         return super.findById(aLong);
     }
 

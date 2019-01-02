@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.*;
@@ -64,8 +65,10 @@ class OwnerControllerTest {
 
     @Test
     void listOwnersByIndex() throws Exception {
+    	
+    	Optional<Owner> owner = Optional.of(Owner.builder().id(1L).build());
 
-        when(ownerService.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+        when(ownerService.findById(anyLong())).thenReturn(owner);
 
         mockMvc.perform(get("/owners/1"))
                 .andExpect(status().isOk())
