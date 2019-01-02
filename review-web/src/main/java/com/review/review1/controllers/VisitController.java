@@ -12,6 +12,9 @@ import com.review.review1.services.PetService;
 import com.review.review1.services.VisitService;
 
 import javax.validation.Valid;
+
+import java.beans.PropertyEditorSupport;
+import java.time.LocalDate;
 import java.util.Map;
 
 
@@ -32,6 +35,15 @@ class VisitController {
 	@InitBinder
     public void setAllowedFields(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
+        
+//        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+//        	@Override
+//        	public void setAsText(String text) throws IllegalArgumentException{
+//        		setValue(LocalDate.parse(text));
+//        	}
+//        	
+//        });
+        
     }
 
     /**

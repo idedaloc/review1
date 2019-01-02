@@ -3,6 +3,9 @@ package com.review.review1.model;
 import lombok.*;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +27,8 @@ public class Pet extends BaseEntity{
     @ManyToOne()
     @JoinColumn(name = "owner_id")
     private Owner owner;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birhtDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
@@ -36,7 +41,7 @@ public class Pet extends BaseEntity{
 		this.petType = petType;
 		this.owner = owner;
 		this.birhtDate = birhtDate;
-		if(visits == null || visits.isEmpty())
+		if(visits == null || !visits.isEmpty())
 			this.visits = visits;
 	}
 
